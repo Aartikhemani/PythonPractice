@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Simple Quiz App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+    $("#b1").click(function(){
+        $(".rb").show();
+        $(".rb").attr("disabled",true);
+
+
+    });
+    });
+
+
+        function getanswers()
+        {
+        document.getElementById("UserAnswers").innerHTML = "";
+        var e = document.getElementsByTagName("input");
+            for(i = 0 ; i<=e.length;i++)
+            {
+                if(e[i].type=="radio")
+                {
+                    if(e[i].checked)
+                    {
+                        document.getElementById("UserAnswers").innerHTML+="Q "+e[i].name + " The Answers You Are Selected Is : "+e[i].value+"<br>";
+
+                    }
+                }
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+<div class="container">
+    <h1 class="text-danger mt-3">Python Practice 01</h1>
+    <hr>
+    <div>
+        {% for quest in question %}
+        <table>
+            <tr>
+                <td class="text-primary">{{quest.id}} ) {{quest.question}} ?</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" class="rb" name = {{quest.id}} id="Option1" value="{{quest.option_one}}">{{quest.option_one}}</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" class="rb" name = {{quest.id}} id="Option2" value="{{quest.option_two}}">{{quest.option_two}}</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" class="rb" name = {{quest.id}} id="Option3" value="{{quest.option_three}}">{{quest.option_three}}</td>
+            </tr>
+            <tr>
+                <td><input type = "radio" class="rb" name = {{quest.id}} id="Option4" value="{{quest.option_four}}">{{quest.option_four}}</td>
+            </tr>
+
+            <tr>
+                <td><label id="corans" class= "rb" style="display:none ; color : green"><b>{{ quest.answer }}</b></label></td>
+            </tr>
+
+        </table>
+<hr>
+
+        {% endfor %}
+        <input type="submit" class="btn btn-success" value="Submit" id="b1" onclick="getanswers()">
+        <br>
+        <b id="UserAnswers"></b>
+        </div>
+</div>
+</body>
+</html>

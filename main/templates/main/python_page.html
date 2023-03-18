@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List of Blocks with Links</title>
+      <style>
+          .active {
+              padding: 20px;
+              font-size: 20px;
+          }
+      </style>
+  </head>
+  <body>
+    <h1>Python Practice</h1>
+    <ul>
+      <li>
+        <div class="active" style="background-color: lightblue;">
+          <a href="{% url "python01" %}">Python Practice 01</a>
+        </div>
+      </li>
+      <li>
+        <div class="active" style="background-color: lightgray;">
+          <a href="https://www.facebook.com">Facebook</a>
+        </div>
+      </li>
+      <li>
+        <div class="active" style="background-color: lightyellow;">
+          <a href="https://www.twitter.com">Twitter</a>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>
