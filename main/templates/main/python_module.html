@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List of Blocks with Links</title>
+      <style>
+          .active {
+              padding: 20px;
+              font-size: 20px;
+          }
+      </style>
+  </head>
+  <body>
+  {% include 'main/nav.html' %}
+    <h2 style="margin-top: 125px">Python Modules</h2>
+    <ul>
+      <li>
+        <div class="active" style="background-color: lightblue;">
+          <a href="{% url "regex_module" %}">Regex Module</a>
+        </div>
+      </li>
+
+    </ul>
+  </body>
+</html>

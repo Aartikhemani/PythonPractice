@@ -14,55 +14,49 @@
 }
 
 .left-section {
-  width: 20%;
+  width: 50%;
   background-color: lightyellow;
   padding-top: 30px;
+  margin-top: 100px;
+  margin-right: 10px;
+  font-size: 20px;
+  padding-left: 50px;
 }
 .right-section {
-    width: 80%;
+    width: 50%;
     font-size: 20px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 20px;
+    margin-top: 100px;
 }
 h1 {
     text-align: center;
 }
-a {
-    font-size: 30px;
-    padding-left: 50px;
-}
+
 
 /* adjust the height and width as desired */
 
 
     </style>
-    <script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-  $(".show-hide-btn").click(function() {
-    var id = $(this).data("id");
-    $("#half-" + id).toggle();//hide/show..
-    $("#full-" + id).toggle();
-  })
-})
-</script>
-    </script>
+
 </head>
 <body>
+ {% include "main/nav.html" %}
 
  <div class="container">
   <div class="left-section">
     <!-- content for the left section goes here -->
       {% for mean in meaning %}
-          <li><a href="#{{ mean.title}}">{{ mean.title }}<br></a><br></li>
+         <li class="nav__item"><a href="#{{ mean.pk }}" class="nav__link">{{ mean.title }}</a></li>
       {% endfor %}
   </div>
   <div class="right-section">
     <!-- content for the right section goes here -->
       {% for mean in meaning %}
-     <h1>{{ mean.title }}</h1>
+      <section id="{{ mean.pk }}">
+          <h2 class="section-title">{{ mean.title }}</h2></section>
+
      <p>{{ mean.text }}</p>
       {% endfor %}
   </div>

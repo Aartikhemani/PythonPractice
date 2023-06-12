@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegEx Module</title>
+    <style>
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+}
+
+.right-section {
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 100px;
+    color: black;
+}
+.href{
+    color: #006b1b;
+    font-size: medium;
+    padding-bottom: 200px;
+}
+</style>
+
+
+</head>
+<body>
+{% include 'main/nav.html' %}
+ <div class="container">
+
+  <div class="right-section">
+    <!-- content for the right section goes here -->
+     <h2 style="margin-top: 50px">Python RegEx Modules</h2><br>
+      <h3 style="color: #5897fb">RegEx Module</h3>
+{#      {% for mean in meaning %}#}
+{##}
+{#     <h3 style="color: #5897fb">{{ mean.title }}</h3>#}
+{#     <p>{% if mean.img %} <img src="{{ mean.img.url }}"> {% endif %}{{ mean.text|linebreaks }}</p>#}
+{#     <a {% if mean.pdf %} href="{{ mean.pdf.url }}" class="nav__link" style="color: #006b1b"> {% endif %}RegEx Module Cheetsheet</a><br>#}
+{#      {% endfor %}#}
+   <div > <p>Regular Expression - RE is a special sequence of character that uses a search pattern to find a string or set
+      of string. It can detect the presence or absence of text by matching it with a particular pattern, and also can
+       split a pattern into one or more sub patterns.
+      <br><p style="text-decoration-line: underline">Import re</p>Python provides a re module whose primary function is
+       to offer a search, where it takes a regular expression and a string.
+      Uses - Find matching pattern in a string, phone verification, web scrapping.
+       <br><a href="/media_root/pdfs/regex_chetsheet.pdf" style="color: green">RegEx Module Cheetsheet</a> </p>
+      <h3 style="color: #5897fb">Functions of RegEx</h3>
+     <br>  <h3>1. re.findall()-</h3><p>Returns all non overlapping matches of pattern in string, as a list of string
+       the string is scanned left to right and matches are returned in the order found.</p>
+      <img src="/media_root/productImages/python-regex-findall.jpg">
+      <p></p> <h3>2. re.compile()-</h3><p>Regular expressions are compiled into pattern objects, which have methods for
+          various operations such as searching for pattern matches or performing string substitutions</p>
+      <img src="/media_root/productImages/python-regex-compile.jpg"><br>
+     <br><h3>3. re.split()-</h3><p>Split string by the occurance of character or a pattern, when finding that pattern,
+        the remaining characters from the string are returned as part of the resulting list.</p>
+      <img src="/media_root/productImages/re.split.jpg" style="width: 500px">
+      <p></p> <h3>3. re.sub()-</h3><p>The method returns a string where matched occurances are replaced with the
+         content of replace variable.</p>
+      <img src="/media_root/productImages/re.sub.jpg" style="width: 500px">
+      <p></p> <h3>4. re.subn()-</h3><p>sub() is similiar to sub() in all ways, except in its way of providing
+         output, it returns a tuple with a count of the total of replacement and new string rather than just the string.</p>
+      <p></p><h3>5. re.escape()-</h3><p>Returns string with all non-alphanumeric backslash, this is useful
+       if you want to match an arbitrary literal string that may have regular expression mata characters in it.</p>
+      <p></p><h3>6. re.search()-</h3><p>Method either returns none(if pattern doesn't match), this method stops
+        after the first match, so this is best suited for testing a regular expression more than extracting data.</p>
+      <img src="/media_root/productImages/python-regex-search.jpg">
+      <p></p><h3>7. re.match()-</h3><p>re.match() function of re in Python will search the regular expression pattern
+      and return the first occurrence. The Python RegEx Match method checks for a match only at the beginning of the
+      string. So, if a match is found in the first line, it returns the match object.</p>
+      <img src="/media_root/productImages/python-regex-match.jpg">
+       <p></p><br>   <h3 style="color: #5897fb">Applications of RegEx</h3>
+       <p>Web-Scrapping & Data Collection. <br>
+          Text Preprocessing (NLP) <br>
+           Pattern Detection for IDs, E-mails, Names. <br>
+           Date-time manipulations.</p>
+       <h3>More Detailed-</h3>
+       <a href="https://www.enjoyalgorithms.com/blog/regex-applications-in-data-science" class="href">https://www.enjoyalgorithms.com/blog/regex-applications-in-data-science</a>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div>
+          <h3 style="color: #993300">Some amazing video on topic-</h3>
+          <a href="https://www.youtube.com/watch?v=yourvideoid" class="href">https://www.youtube.com/watch?v=yourvideoid</a>
+  </div>
+  </div>
+
+</div>
+
+</body>
+</html>

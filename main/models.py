@@ -36,8 +36,11 @@ class Questions(models.Model):
         return self.question
 
 class PythonMeaning(models.Model):
-    title = models.CharField(max_length=255,blank=True)
+    title = models.CharField(max_length=255, blank=True)
     text = models.TextField()
+    img = models.ImageField(upload_to="productImages", blank=True)
+    url = models.URLField(max_length=200, blank=True, null=True)
+    pdf = models.FileField(upload_to='pdfs',blank=True)
 
 class InterviewQuestionType(models.Model):
     type = models.CharField(max_length=255, blank=True)
@@ -60,4 +63,4 @@ class SQLquestions(models.Model):
     interview_question_type = models.ForeignKey(InterviewQuestionType, on_delete=models.CASCADE)
     question = models.TextField(max_length=255, blank=True)
     img = models.ImageField(upload_to="productImages", blank=True)
-    answer = models.TextField()
+    answer = models.TextField(blank=True)

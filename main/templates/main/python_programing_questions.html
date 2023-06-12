@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Python Programming Questions</title>
+    <style>
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+}
+
+.right-section {
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 100px;
+    color: black;
+}
+
+</style>
+
+
+</head>
+<body>
+{% include 'main/nav.html' %}
+ <div class="container">
+
+  <div class="right-section">
+    <!-- content for the right section goes here -->
+     <h2 style="margin-bottom: 80px">Python Programming Questions-</h2>
+      {% for quest in questions %}
+     <h3 style="margin-top: 30px">Q. {{ quest.question }}</h3>
+
+     <p>Ans.{% if quest.img %} <img src="{{ quest.img.url }}" width="500px"> {% endif %}{{ quest.answer|linebreaks }}</p>
+
+      {% endfor %}
+  </div>
+
+</div>
+
+</body>
+</html>

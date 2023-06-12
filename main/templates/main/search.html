@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Results</title>
     <style>
 .container {
   display: flex;
@@ -27,13 +27,15 @@
 </head>
 <body>
 
+
  <div class="container">
 
   <div class="right-section">
     <!-- content for the right section goes here -->
       {% for quest in interview %}
      <h3>Q. {{ quest.question }}</h3>
-      <p>Ans.{{ quest.answer|linebreaks }}</p>
+     <p>Ans.{% if quest.img %} <img src="{{ quest.img.url }}"> {% endif %}{{ quest.answer|linebreaks }}</p>
+
       {% endfor %}
   </div>
 
@@ -53,7 +55,17 @@
     <!-- content for the right section goes here -->
       {% for quest in random %}
      <h3>Q. {{ quest.question }}</h3>
-      <p>Ans.{{ quest.answer|linebreaks }}</p>
+     <p>Ans.{% if quest.img %} <img src="{{ quest.img.url }}"> {% endif %}{{ quest.answer|linebreaks }}</p>
+
+      {% endfor %}
+  </div>
+  <div class="right-section">
+    <!-- content for the right section goes here -->
+      {% for mean in meaning %}
+     <h3>Q. {{ mean.title }}</h3>
+     <p>Ans.{% if mean.img %} <img src="{{ mean.img.url }}"> {% endif %}{{ mean.text|linebreaks }}</p>
+     <h4>{% if mean.url %}  <a href="{{ mean.url }}" style="color: #993300">{{ mean.url }}</a>{% endif %}</h4>
+
       {% endfor %}
   </div>
 

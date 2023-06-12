@@ -6,6 +6,7 @@ from django.contrib import messages
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from .helpers import send_forget_password_mail
+from django.http import FileResponse
 
 
 def SignUp(request):
@@ -82,7 +83,8 @@ def search(request):
     query = request.GET['query']
     interview = InterviewQuestions.objects.filter(Q(question__icontains=query) | Q(answer__icontains=query))
     random = RandomQuestions.objects.filter(Q(question__icontains=query) | Q(answer__icontains=query))
-    return render(request, 'main/search.html', {"interview": interview, "random": random})
+    meaning = PythonMeaning.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))
+    return render(request, 'main/search.html', {"interview": interview, "random": random, "meaning" : meaning})
 
     # return HttpResponse("this is search")
 
@@ -151,6 +153,17 @@ def python_meaning_view(request):
     meaning = PythonMeaning.objects.all()
     return render(request, 'main/Python_meaning.html', {"meaning": meaning})
 
+def python_module(request):
+    return render(request, 'main/python_module.html')
+
+def regex_module(request):
+    meaning= PythonMeaning.objects.filter(Q(title__contains="RegEx") | Q(title__contains="re."))
+    return render(request, 'main/regex_module.html', {"meaning": meaning})
+
+def django_orm(request):
+    meaning = PythonMeaning.objects.filter(title__contains="ORM")
+    return render(request, 'main/django_orm.html', {"meaning": meaning})
+
 def interview_questions_view(request):
     question = InterviewQuestions.objects.all()
     return render(request, 'main/interview_questions.html', {"question": question})
@@ -162,6 +175,11 @@ def small_type_interview_questions(request):
 def long_type_interview_questions(request):
     questions = InterviewQuestions.objects.filter(interview_question_type__type__icontains="Long Questions")
     return render(request, 'main/long_questions.html', {"questions": questions})
+
+def python_programming_questions(request):
+    questions = InterviewQuestions.objects.filter(interview_question_type__type__icontains="Python Programming "
+                                                                                           "Questions")
+    return render(request, 'main/python_programing_questions.html', {"questions": questions})
 
 def random_questions_view(request):
     questions = RandomQuestions.objects.all()
