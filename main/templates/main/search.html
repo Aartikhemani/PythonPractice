@@ -69,6 +69,16 @@
       {% endfor %}
   </div>
 
+  <div class="right-section">
+    <!-- content for the right section goes here -->
+      {% for sql in sql_details %}
+     <h3>Q. {{ sql.title }}</h3>
+     <p>Ans.{% if sql.img %} <img src="{{ sql.img.url }}"> {% endif %}{{ sql.text|linebreaks }}</p>
+     <h4>{% if sql.url %}  <a href="{{ sql.url }}" style="color: #993300">{{ sql.url }}</a>{% endif %}</h4>
+
+      {% endfor %}
+  </div>
+
 </div>
 
 </body>

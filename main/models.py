@@ -64,3 +64,12 @@ class SQLquestions(models.Model):
     question = models.TextField(max_length=255, blank=True)
     img = models.ImageField(upload_to="productImages", blank=True)
     answer = models.TextField(blank=True)
+
+class SQLdetails(models.Model):
+     title = models.CharField(max_length=255, blank=True)
+     text = models.TextField(blank=True)
+     img = models.ImageField(upload_to="productImages", blank=True)
+     img2 = models.ImageField(upload_to="productImages", blank=True)
+     img3 = models.ImageField(upload_to="productImages", blank=True)
+     url = models.URLField(max_length=200, blank=True, null=True)
+     pdf = models.FileField(upload_to='pdfs', blank=True)

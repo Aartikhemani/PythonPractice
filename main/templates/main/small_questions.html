@@ -36,7 +36,7 @@
       {% for quest in questions %}
      <h3>Q. {{ quest.question }}</h3>
 
-     <p>Ans.{% if quest.img %} <img src="{{ quest.img.url }}"> {% endif %}{{ quest.answer|linebreaks }}</p>
+     <p>Ans.{% if quest.img %} <img src="{{ quest.img.url }}" alt=""> {% endif %}{{ quest.answer|linebreaks }}</p>
 
       {% endfor %}
   </div>

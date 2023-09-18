@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SQL Details</title>
+    <style>
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.left-section {
+  width: 30%;
+  background-color: lightyellow;
+  padding-top: 30px;
+  margin-top: 100px;
+  margin-right: 100px;
+  font-size: 20px;
+  padding-left: 1px;
+}
+.right-section {
+    width: 70%;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 1px;
+    padding-top: 20px;
+    margin-top: 100px;
+}
+h1 {
+    text-align: center;
+}
+
+
+/* adjust the height and width as desired */
+
+
+    </style>
+
+</head>
+<body>
+ {% include "main/nav.html" %}
+
+ <div class="container">
+  <div class="left-section">
+    <!-- content for the left section goes here -->
+      {% for mean in meaning %}
+         <li class="nav__item"><a href="#{{ mean.pk }}" class="nav__link">{{ mean.title }}</a></li>
+      {% endfor %}
+  </div>
+  <div class="right-section">
+    <!-- content for the right section goes here -->
+      {% for mean in meaning %}
+      <section id="{{ mean.pk }}">
+          <h2 class="section-title" style="text-underline: black"> {% if mean.text or mean.img %}{{ mean.title }} {% endif %}</h2></section> <br>
+
+    <br>  <p> {{ mean.text|linebreaks }}{% if mean.img %} <img src="{{ mean.img.url }}" style="height: 500px; width: 700px" alt=""> {% endif %} {% if mean.img2 %} <img src="{{ mean.img2.url }}" style="height: 500px; width: 700px" alt=""> {% endif %} {% if mean.img3 %} <img src="{{ mean.img3.url }}" style="height: 500px; width: 700px" alt=""> {% endif %}</p>
+
+      {% endfor %}
+    {% for mean in meaning %}
+     <a {% if mean.pdf %} href="{{ mean.pdf.url }}" class="nav__link" style="color: #006b1b"> {% endif %}SQL Cheetsheet</a>
+
+    {% endfor %}
+  </div>
+
+</div>
+{# | truncatechars:500#}
+
+
+
+
+</body>
+</html>

@@ -102,10 +102,7 @@
    <li>Introduction
       <ul class="sub-menu">
         <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+
       </ul>
     </li>
     <li>Python
@@ -114,7 +111,10 @@
         <li><a href="{% url "python_meaning" %}">Meaning</a></li>
         <li><a href="{% url "interview_questions" %}">Interview Questions</a></li>
         <li><a href="{% url "python_module" %}">Python Module</a> </li>
-        <li></li>
+        <li><a href="{% url "python_scraping" %}">Python Scraping</a> </li>
+        <li><a href="{% url "testing" %}">Testing</a> </li>
+
+
 
       </ul>
     </li>
@@ -122,21 +122,23 @@
      <li>Django
       <ul class="sub-menu">
         <li><a href="{% url "django_orm" %}">Django ORM</a> </li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><a href="{% url "rest_api_questions" %}">Rest API</a></li>
+        <li><a href="{% url "payment_gateway" %}">Paymeny Gateway</a></li>
+        <li><a href="{% url "django_testing" %}">Django Testing</a> </li>
+        <li><a href="{% url "django_testing_interview_questions" %}">Django Testing Interview Questions</a> </li>
+
+
+
       </ul>
     </li>
 
 
    <li>SQL
       <ul class="sub-menu">
+        <li><a href="{% url "sql_details" %}">SQL</a> </li>
         <li><a href="{% url "small_sql_questions" %}">Small Questions</a> </li>
         <li><a href="{% static "app/pdfs/sql.pdf" %}">SQL Question</a></li>
-        <li></li>
-        <li></li>
-        <li></li>
+
       </ul>
     </li>
 
@@ -144,20 +146,17 @@
     <li>GitHub
       <ul class="sub-menu">
         <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+
       </ul>
     </li>
 
       <li>Random
       <ul class="sub-menu">
         <li><a href="{% url "random_questions" %}">Random Questions</a></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><a href="{% url "error_handling" %}">Error</a></li>
+        <li><a href="{% url "status code" %}">Status Code</a></li>
+
+
       </ul>
     </li>
 

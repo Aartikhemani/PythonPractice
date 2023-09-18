@@ -84,7 +84,9 @@ def search(request):
     interview = InterviewQuestions.objects.filter(Q(question__icontains=query) | Q(answer__icontains=query))
     random = RandomQuestions.objects.filter(Q(question__icontains=query) | Q(answer__icontains=query))
     meaning = PythonMeaning.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))
-    return render(request, 'main/search.html', {"interview": interview, "random": random, "meaning" : meaning})
+    sql_details = SQLdetails.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))
+
+    return render(request, 'main/search.html', {"interview": interview, "random": random, "meaning": meaning, "sql_details" : sql_details})
 
     # return HttpResponse("this is search")
 
@@ -153,12 +155,32 @@ def python_meaning_view(request):
     meaning = PythonMeaning.objects.all()
     return render(request, 'main/Python_meaning.html', {"meaning": meaning})
 
+def sql_details_view(request):
+    meaning = SQLdetails.objects.all()
+    return render(request, 'main/sql_details.html', {"meaning": meaning})
+
 def python_module(request):
     return render(request, 'main/python_module.html')
 
 def regex_module(request):
     meaning= PythonMeaning.objects.filter(Q(title__contains="RegEx") | Q(title__contains="re."))
     return render(request, 'main/regex_module.html', {"meaning": meaning})
+
+def python_scraping(request):
+    meaning = InterviewQuestions.objects.filter(interview_question_type__type__icontains="Python Scraping")
+    return render(request, 'main/python_scraping.html', {"meaning": meaning})
+
+def testing(request):
+    meaning = InterviewQuestions.objects.filter(interview_question_type__type__icontains="testing")
+    return render(request, 'main/testing.html', {"meaning": meaning})
+
+def django_testing(request):
+    meaning = InterviewQuestions.objects.filter(interview_question_type__type__icontains="django testing")
+    return render(request, 'main/django_testing.html', {"meaning": meaning})
+
+def django_testing_interview_questions(request):
+    meaning = InterviewQuestions.objects.filter(interview_question_type__type__icontains="django testing interview questions")
+    return render(request, 'main/django_testing_interview_questions.html', {"meaning": meaning})
 
 def django_orm(request):
     meaning = PythonMeaning.objects.filter(title__contains="ORM")
@@ -188,3 +210,19 @@ def random_questions_view(request):
 def small_sql_questions(request):
     questions = SQLquestions.objects.filter(interview_question_type__type__icontains="SQL Small Questions")
     return render(request, 'main/sql_small_questions.html', {"questions": questions})
+
+def rest_api_questions(request):
+    questions = InterviewQuestions.objects.filter(interview_question_type__type__icontains="Rest api")
+    return render(request, 'main/rest_api.html', {"questions": questions})
+
+def payment_gateway(request):
+    questions = InterviewQuestions.objects.filter(interview_question_type__type__icontains="Payment gateway")
+    return render(request, 'main/payment_gateway.html', {"questions": questions})
+
+def error_handling_view(request):
+    questions = InterviewQuestions.objects.filter(interview_question_type__type__icontains="Error Handling")
+    return render(request, 'main/error_handling.html', {"questions": questions})
+
+def status_code(request):
+    questions = InterviewQuestions.objects.filter(interview_question_type__type__icontains="Status Code")
+    return render(request, 'main/status_code.html', {"questions": questions})

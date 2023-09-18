@@ -1,4 +1,3 @@
-{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,22 +21,22 @@
     padding-top: 100px;
     color: black;
 }
+
 </style>
 
 
 </head>
 <body>
 {% include 'main/nav.html' %}
-{% csrf_token %}
  <div class="container">
 
   <div class="right-section">
     <!-- content for the right section goes here -->
-    <h2 style="margin-bottom: 80px">Long Type Interview Questions-</h2>
+     <h2 style="margin-bottom: 80px">Error Handling-</h2>
       {% for quest in questions %}
-     <h3>Q. {{ quest.question }}</h3>
+     <br><h3>Q. {{ quest.question }}</h3>
 
-     <p>Ans.{% if quest.img %} <img src="{{ quest.img.url }}"> {% endif %}{{ quest.answer|linebreaks }}</p>
+     <p>Ans.{% if quest.img %} <img src="{{ quest.img.url }}" style="width: 900px; height: 600px" alt=""> {% endif %}{{ quest.answer|linebreaks }}</p>
 
       {% endfor %}
   </div>

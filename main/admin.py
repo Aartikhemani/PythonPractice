@@ -1,8 +1,11 @@
 from django.contrib import admin
 from .models import *
+
+
 admin.site.register(Questions)
 admin.site.register(Profile)
 admin.site.register(PythonMeaning)
+admin.site.register(SQLdetails)
 admin.site.register(InterviewQuestionType)
 admin.site.register(RandomQuestions)
 admin.site.register(SQLquestions)

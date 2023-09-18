@@ -34,9 +34,9 @@
     <!-- content for the right section goes here -->
      <h2 style="margin-bottom: 80px">Small Questions-</h2>
       {% for quest in questions %}
-     <h3>Q. {{ quest.question }}</h3>
+     <h3>{% if quest.question %} Q. {% endif %}  {{ quest.question }} </h3>
 
-     <p>Ans.{% if quest.img %} <img src="{{ quest.img.url }}" style="width: 900px; height: 600px" alt=""> {% endif %}{{ quest.answer|linebreaks }}</p>
+     <p> {% if quest.answer %} Ans. {% endif %} <br> {% if quest.img %} <img src="{{ quest.img.url }}" style="width: 900px; height: 600px" alt=""> {% endif %} {{ quest.answer|linebreaks }} <br> </p>
 
       {% endfor %}
   </div>
